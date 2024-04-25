@@ -23,7 +23,7 @@ function setUIStatus(status) {
 function start() {
   setUIStatus(UIStatus.START);
   paused = false;
-  setTimeout(tickFunction, 1000);
+  tickFunction();
 }
 
 function pause() {
@@ -44,9 +44,7 @@ function setupTime() {
 
 let paused = true;
 function tickFunction() {
-  console.log("tickFunction");
   if (!paused && currentTime > 0) {
-    console.log("tickFunction2");
     currentTime--;
     updateTimeText();
     setTimeout(tickFunction, 1000);
