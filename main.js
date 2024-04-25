@@ -4,6 +4,7 @@ import dictionary from "./dictionary.json"
 let currentTime = 0;
 let warningTime = 30;
 let alertTime = 10;
+let restartOnTimeout = true;
 
 const UIStatus = {
   START: 'start',
@@ -50,9 +51,11 @@ function tickFunction() {
     setTimeout(tickFunction, 1000);
   }
   else if (currentTime <= 0) {
-    setTimeout(() => {
-      reset();
-    }, 1000);
+    if (restartOnTimeout) {
+      setTimeout(() => {
+        reset();
+      }, 2000);
+    }
   }
 }
 
@@ -100,6 +103,7 @@ function loadSetup() {
     cfgDefaultSeconds.value = setup.defaultSeconds;
     minuteInput.value = setup.defaultMinutes;
     secondInput.value = setup.defaultSeconds;
+    restartOnTimeout = setup.restartOnTimeout ?? true;
     const oldClockStyle = setup.oldStyle ?? false;
     if (oldClockStyle) {
       counter.classList.add('classic');
@@ -108,6 +112,13 @@ function loadSetup() {
     else {
       counter.classList.remove('classic');
     }
+    if (restartOnTimeout) {
+      cfgRestartOnTimeout.setAttribute("checked","checked");
+    }
+    else {
+      cfgRestartOnTimeout.removeAttribute("checked");
+    }
+    
   }
   catch (err) {
   }
@@ -119,11 +130,13 @@ function updateSeupt() {
     alertSeconds: cfgAlertSeconds.value,
     defaultMinutes: cfgDefaultMinutes.value,
     defaultSeconds: cfgDefaultSeconds.value,
-    oldStyle: cfgClockStyle.checked
+    oldStyle: cfgClockStyle.checked,
+    restartOnTimeout: cfgRestartOnTimeout.checked
   }
   localStorage.setItem("timerSetup", JSON.stringify(setup));
   warningTime = Number(cfgWarningSeconds.value);
   alertTime = Number(cfgAlertSeconds.value);
+  restartOnTimeout = cfgRestartOnTimeout.checked;
   const oldClockStyle = setup.oldStyle ?? false;
   if (oldClockStyle) {
     counter.classList.add('classic');
@@ -150,6 +163,7 @@ cfgAlertSeconds.addEventListener('change', updateSeupt);
 cfgDefaultMinutes.addEventListener('change', updateSeupt);
 cfgDefaultSeconds.addEventListener('change', updateSeupt);
 cfgClockStyle.addEventListener('change', updateSeupt);
+cfgRestartOnTimeout.addEventListener('change', updateSeupt);
 
 loadSetup();
 setUIStatus(UIStatus.PAUSE);

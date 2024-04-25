@@ -17,6 +17,10 @@
         "cfgSecondsText": "segundos",
         "cfgDefaultValues": "Valores por defecto",
         "cfgStartTime": "Tiempo inicial",
-        "setupTime": "Programar Tiempo"
+        "setupTime": "Programar Tiempo",
+        "cfgClockStyle": "Estilo del Reloj",
+        "cfg8BitStyleText": "Estilo 8 bits",
+        "cfgOtherText": "Otros",
+        "cfgRestartOnTimeoutText": "Reiniciar al acabar el tiempo"
     }
 }
