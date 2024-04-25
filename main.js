@@ -59,10 +59,7 @@ function tickFunction() {
   }
 }
 
-function updateTimeText() {
-  const minutes = Math.floor(currentTime / 60);
-  const seconds = currentTime % 60;
-  counter.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+function updateWarningColors() {
   if (currentTime <= warningTime && currentTime > alertTime && !counterArea.classList.contains('warning')) {
     counterArea.classList.add('warning');
     counterArea.classList.remove('alert');
@@ -75,6 +72,13 @@ function updateTimeText() {
     counterArea.classList.remove('warning');
     counterArea.classList.remove('alert');
   }
+}
+
+function updateTimeText() {
+  const minutes = Math.floor(currentTime / 60);
+  const seconds = currentTime % 60;
+  counter.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  updateWarningColors();
 }
 
 startButton.addEventListener('click', () => {
@@ -118,7 +122,6 @@ function loadSetup() {
     else {
       cfgRestartOnTimeout.removeAttribute("checked");
     }
-    
   }
   catch (err) {
   }
@@ -144,6 +147,7 @@ function updateSeupt() {
   else {
     counter.classList.remove('classic');
   }
+  updateWarningColors();
 }
 
 
