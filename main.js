@@ -2,8 +2,8 @@ import './style.css'
 import dictionary from "./dictionary.json"
 
 let currentTime = 0;
-const warningTime = 30;
-const alertTime = 10;
+let warningTime = 30;
+let alertTime = 10;
 
 const UIStatus = {
   START: 'start',
@@ -115,6 +115,8 @@ function updateSeupt() {
     defaultSeconds: cfgDefaultSeconds.value
   }
   localStorage.setItem("timerSetup", JSON.stringify(setup));
+  warningTime = Number(cfgWarningSeconds.value);
+  alertTime = Number(cfgAlertSeconds.value);
 }
 
 
