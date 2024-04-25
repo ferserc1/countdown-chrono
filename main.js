@@ -103,10 +103,10 @@ function loadSetup() {
     const oldClockStyle = setup.oldStyle ?? false;
     if (oldClockStyle) {
       counter.classList.add('classic');
+      cfgClockStyle.setAttribute("checked","checked");
     }
     else {
       counter.classList.remove('classic');
-      cfgClockStyle.checked = oldClockStyle;
     }
   }
   catch (err) {
