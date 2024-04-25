@@ -1,8 +1,7 @@
 # Simple countdown chrono
 
-Este es un ejemplo de cómo construir un cronómetro de cuenta atrás sencillo utilizando exclusivamente HTML, CSS y JavaScript, sin ninguna biblioteca. El cronómetro ofrece:
+This is an example of how to build a simple countdown timer using only HTML, CSS and JavaScript, without any libraries. The timer offers:
 
-- Configuración de valores por defecto, almacenados en el local storage
-- Aviso de tiempo límite con dos intervalos de tiempo
-- Localización
-
+- Default settings, stored in local storage.
+- Timeout warning with two time intervals
+- Localisation
