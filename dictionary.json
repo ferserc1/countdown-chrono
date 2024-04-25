@@ -1,0 +1,22 @@
+{
+    "en": {
+        "cfgTitle": "Settings",
+        "cfgTimeoutWarningTitle": "Timeout Warning",
+        "cfgTimeoutWarningText": "Warning",
+        "cfgTimeoutAlertText": "Alert",
+        "cfgSecondsText": "seconds",
+        "cfgDefaultValues": "Default values",
+        "cfgStartTime": "Start time",
+        "setupTime": "Setup time"
+    },
+    "es": {
+        "cfgTitle": "Configuración",
+        "cfgTimeoutWarningTitle": "Tiempos límite",
+        "cfgTimeoutWarningText": "Advertencia",
+        "cfgTimeoutAlertText": "Alerta",
+        "cfgSecondsText": "segundos",
+        "cfgDefaultValues": "Valores por defecto",
+        "cfgStartTime": "Tiempo inicial",
+        "setupTime": "Programar Tiempo"
+    }
+}
