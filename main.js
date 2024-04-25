@@ -102,6 +102,14 @@ function loadSetup() {
     cfgDefaultSeconds.value = setup.defaultSeconds;
     minuteInput.value = setup.defaultMinutes;
     secondInput.value = setup.defaultSeconds;
+    const oldClockStyle = setup.oldStyle ?? false;
+    if (oldClockStyle) {
+      counter.classList.add('classic');
+    }
+    else {
+      counter.classList.remove('classic');
+      cfgClockStyle.checked = oldClockStyle;
+    }
   }
   catch (err) {
   }
@@ -112,11 +120,19 @@ function updateSeupt() {
     warningSeconds: cfgWarningSeconds.value,
     alertSeconds: cfgAlertSeconds.value,
     defaultMinutes: cfgDefaultMinutes.value,
-    defaultSeconds: cfgDefaultSeconds.value
+    defaultSeconds: cfgDefaultSeconds.value,
+    oldStyle: cfgClockStyle.checked
   }
   localStorage.setItem("timerSetup", JSON.stringify(setup));
   warningTime = Number(cfgWarningSeconds.value);
   alertTime = Number(cfgAlertSeconds.value);
+  const oldClockStyle = setup.oldStyle ?? false;
+  if (oldClockStyle) {
+    counter.classList.add('classic');
+  }
+  else {
+    counter.classList.remove('classic');
+  }
 }
 
 
@@ -135,6 +151,7 @@ cfgWarningSeconds.addEventListener('change', updateSeupt);
 cfgAlertSeconds.addEventListener('change', updateSeupt);
 cfgDefaultMinutes.addEventListener('change', updateSeupt);
 cfgDefaultSeconds.addEventListener('change', updateSeupt);
+cfgClockStyle.addEventListener('change', updateSeupt);
 
 loadSetup();
 setUIStatus(UIStatus.PAUSE);
