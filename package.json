@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "@fontsource/jersey-10": "^5.0.2"
   }
 }

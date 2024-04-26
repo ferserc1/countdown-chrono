@@ -1,3 +1,4 @@
+import '@fontsource/jersey-10'
 import './style.css'
 import dictionary from "./dictionary.json"
 
